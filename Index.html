@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Images/favicon.png" type="image/x-icon">
+    <title>Exhibition Solutions Pvt. Ltd. - Premium Event Management and Software Services</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Font Awesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <style>
+        .clients {
+            background-color: white;
+            padding: 5rem 1rem;;
+            overflow: hidden;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .clients-container {
+            display: flex;
+            width: fit-content;
+            animation: scroll 30s linear infinite;
+        }
+
+        .client-card {
+            flex-shrink: 0;
+            padding: 0 20px;
+        }
+
+        .client-card img {
+            width: 250px;
+            height: 150px;
+            object-fit: contain;
+        }
+
+        @media (max-width: 768px) {
+            .client-card img {
+                width: 150px;
+                height: 100px;
+            }
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .slider {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+
+        .slider::before,
+        .slider::after {
+            content: "";
+            position: absolute;
+            width: 50px;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .slider::before {
+            left: 0;
+            background: linear-gradient(to right, white, transparent);
+        }
+
+        .slider::after {
+            right: 0;
+            background: linear-gradient(to left, white, transparent);
+        }
+
+        /* Optional: Pause on hover */
+        .clients-container:hover {
+            animation-play-state: paused;
+        }
+    </style>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation Styles */
+        .navbar {
+            position: fixed;
+            width: 100%;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #7c3aed;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4b5563;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #7c3aed;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .hero-content h2 {
+            font-size: 2.5rem;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: #4b5563;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: #7c3aed;
+            color: white;
+            text-decoration: none;
+            border-radius: 9999px;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #6d28d9;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 1rem;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: #1f2937;
+            margin-bottom: 3rem;
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            padding: 2rem;
+            background: #f9fafb;
+            border-radius: 0.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            color: #7c3aed;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 1rem;
+            background: white;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-input {
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #7c3aed;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1f2937;
+            color: white;
+            padding: 3rem 1rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        
+
+        /* Add these new styles for hamburger menu */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 0.5rem 0;
+            }
+
+            /* Update service cards for better mobile display */
+            .services-grid {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+            }
+
+            .service-card {
+                margin-bottom: 1rem;
+            }
+
+            /* Update client cards for better mobile view */
+            .clients-container {
+                gap: 1rem;
+                /* flex-wrap: nowrap; */
+            }
+
+            .client-card {
+                min-width: 150px;
+            }
+        }
+
+        /* Stats Section Styles */
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            padding: 4rem 1rem;
+            background-color: #ffffff;
+            text-align: center;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .stat-icon i {
+            font-size: 3rem;
+            color: #7c3aed;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1f2937;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #4b5563;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* For responsive design */
+        @media (max-width: 768px) {
+            .stats {
+                flex-direction: column;
+                gap: 2rem;
+            }
+        }
+
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+
+    <style>
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 2rem;
+            color: #fff;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #000000, #e46161, #3300ff, #ff3803);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 300%;
+            animation: gradientMove 8s infinite;
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(253, 1, 1, 0.607);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 2.5rem;
+            background: linear-gradient(45deg, #0056b3, #9e02ff);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+        }
+
+        .cta-button:hover {
+            background: linear-gradient(45deg, #007bff, #04f91c);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+    <style>
+        .about-section {
+            padding: 100px 0;
+            background-color: #f3f4f6;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .title-underline {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #007bff, #00bcd4);
+            margin-bottom: 30px;
+        }
+
+        .about-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature i {
+            font-size: 2rem;
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .about-image {
+            flex: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .about-container {
+                flex-direction: column;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                order: -1;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo"><img src="Images/logo1.jpg" style="width: 75px;"></div>
+            <button class="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About Us</a>
+                <a href="#services">Services</a>
+                <a href="#clients">Clients</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content" data-aos="fade-up">
+            <h2 class="animated-text">Exhibition services with advanced technology for modern businesses.</h2>
+            <p>From concept to execution, we bring your vision to life</p>
+            <a href="#contact" class="cta-button">Get Started</a>
+        </div>
+    </section>
+    <!-- About Us -->
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <div class="about-content" data-aos="fade-right">
+                <h2 class="section-title">Who We Are</h2>
+                <div class="title-underline"></div>
+                <p class="about-description">
+                    Exhibition Solutions, established in 2012 and headquartered in New Delhi, is a trusted name in
+                    providing cutting-edge exhibition services across India. We specialize in offering end-to-end
+                    solutions for events, ensuring that every aspect of your exhibition is flawlessly executed. From
+                    designing and setting up booths to providing technical support and advanced technology for seamless
+                    presentations, we focus on creating engaging and memorable experiences. Our expert team, with a rich
+                    background in engineering and technology, is dedicated to delivering high-quality services tailored
+                    to the specific needs of each event. At Exhibition Solutions, we help businesses effectively showcase their
+                    products and services, making every event a success.
+                </p>
+                <div class="about-features">
+                    <div class="feature">
+                        <i class="fas fa-paint-brush"></i>
+                        <h3>Creative Design</h3>
+                        <p>Innovative concepts that capture your brand's essence</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-cogs"></i>
+                        <h3>Technical Excellence</h3>
+                        <p>State-of-the-art technology integration</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-handshake"></i>
+                        <h3>Expert Support</h3>
+                        <p>Dedicated team ensuring smooth execution</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image" data-aos="fade-left">
+                <video width="100%" height="10%" autoplay loop muted style="border-radius: 10px;">
+                    <source src="Video/ExhibitionVideo.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <br>
+        <h2 class="section-title" data-aos="fade-up">OUR SERVICES</h2>
+        <div class="services-grid">
+            <div class="service-card" data-aos="fade-up">
+                <div class="service-icon">🎟️</div>
+                <h3>Attendees Registration</h3>
+                <hr>
+                <p>Streamline attendee registration and capture valuable insights with Certain’s seamless event
+                    solution. Make a lasting impression from the start.</p>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-icon">🔖</div>
+                <h3>Smart Tracking Systems</h3>
+                <hr>
+                <p>Our solution uses RFID and Barcode technology, plus web and mobile apps, to track attendance at
+                    events of any size. It improves efficiency, offers real-time reporting, and reduces errors.</p>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-icon">💻</div>
+                <h3>Website Design & Development</h3>
+                <hr>
+                <p>We create customized web designs that drive value, encourage repeat visits, and boost referrals. With
+                    our expertise, Exhibition Solutions helps you achieve your digital marketing goals.</p>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="service-icon">📱</div>
+                <h3>Touch Screen Kiosks</h3>
+                <hr>
+                <p>We offer innovative touchscreen kiosks and digital display solutions, allowing you to manage and
+                    update content remotely through our marketing platform for both large screens and interactive
+                    touchscreens.</p>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="service-icon">🤝</div>
+                <h3>Exhibition Management</h3>
+                <hr>
+                <p>We specialize in managing exhibitions, offering expert services in conceptualizing, designing, and
+                    executing events. We help clients participate in themed exhibitions, including those for Real
+                    Estate, Banking, and Education sectors.</p>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="service-icon">💾</div>
+                <h3>Data Validation</h3>
+                <hr>
+                <p>We provide expert data validation services to ensure accurate and reliable information for your
+                    business. Using advanced tools and methods, we verify data through web research or direct contact,
+                    enhancing your database with high-quality, verified data.</p>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="service-icon">📣</div>
+                <h3>Visitor Promotion</h3>
+                <hr>
+                <p>We offer customized marketing communication plans for your events and exhibitions, ensuring they
+                    reach your target audience. We handle all marketing efforts before, during, and after the event.</p>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="service-icon">💡</div>
+                <h3>Mobile App Development</h3>
+                <hr>
+                <p>We specialize in creating high-performance mobile apps for businesses, from startups to large
+                    enterprises, using a customer-centric approach to deliver functional, top-quality solutions.</p>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="service-icon">📶</div>
+                <h3>RFID Attendence & Tracking Systems</h3>
+                <hr>
+                <p>Our RFID system allows admins to easily track attendee arrival, departure, and absenteeism without
+                    technical knowledge, as all records are generated automatically.</p>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="service-icon">🏅</div>
+                <h3>Lanyards and Badges</h3>
+                <hr>
+                <p> We provide a range of lanyards and badge holders, including retractable, clip-on, wallet styles, and
+                    fashionable beaded options for professionals and event attendees.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Clients Section with Sliding Cards -->
+    <section id="clients" class="clients">
+        <br>
+        <h2 class="section-title" data-aos="fade-up">OUR CLIENTS</h2>
+        <div class="slider">
+            <div class="clients-container">
+                <!-- First set of images -->
+                <div class="client-card" data-aos="fade-up">
+                    <img src="Images/ABEC.avif" alt="ABEC">
+                </div>
+                <div class="client-card" data-aos="fade-up">
+                    <img src="Images/AEPC.jpg" alt="AEPC">
+                </div>
+                <div class="client-card" data-aos="fade-up">
+                    <img src="Images/AIPTIA.jpeg" alt="AIPTIA">
+                </div>
+                <div class="client-card" data-aos="fade-up">
+                    <img src="Images/FICCI.jpg" alt="FICCI">
+                </div>
+                <div class="client-card" data-aos="fade-up">
+                    <img src="Images/nm.jpg" alt="NM">
+                </div>
+                <div class="client-card" data-aos="fade-up">
+                    <img src="Images/informamarkets.jpg" alt="Informa Markets">
+                </div>
+                <div class="client-card" data-aos="fade-up">
+                    <img src="Images/IEEMA.jpg" alt="IEEMA">
+                </div>
+                <div class="client-card" data-aos="fade-up">
+                    <img src="Images/rx.png" alt="RX">
+                </div>
+                <div class="client-card" data-aos="fade-up">
+                    <img src="Images/ms.png" alt="MS">
+                </div>
+                <div class="client-card" data-aos="fade-up">
+                    <img src="Images/dmg.png" alt="DMG">
+                </div>
+                <div class="client-card" data-aos="fade-up">
+                    <img src="Images/ieml.jpg" alt="IEML">
+                </div>
+                <div class="client-card" data-aos="fade-up">
+                    <img src="Images/pda.jpg" alt="PDA">
+                </div>
+
+                <!-- Duplicate set for seamless scrolling -->
+                <div class="client-card" data-aos="fade-up">
+                    <img src="Images/ABEC.avif" alt="ABEC">
+                </div>
+                <div class="client-card" data-aos="fade-up">
+                    <img src="Images/AEPC.jpg" alt="AEPC">
+                </div>
+                <div class="client-card" data-aos="fade-up">
+                    <img src="Images/AIPTIA.jpeg" alt="AIPTIA">
+                </div>
+                <div class="client-card" data-aos="fade-up">
+                    <img src="Images/FICCI.jpg" alt="FICCI">
+                </div>
+                <div class="client-card" data-aos="fade-up">
+                    <img src="Images/nm.jpg" alt="NM">
+                </div>
+                <div class="client-card" data-aos="fade-up">
+                    <img src="Images/informamarkets.jpg" alt="Informa Markets">
+                </div>
+                <div class="client-card" data-aos="fade-up">
+                    <img src="Images/IEEMA.jpg" alt="IEEMA">
+                </div>
+                <div class="client-card" data-aos="fade-up">
+                    <img src="Images/rx.png" alt="RX">
+                </div>
+                <div class="client-card" data-aos="fade-up">
+                    <img src="Images/ms.png" alt="MS">
+                </div>
+                <div class="client-card" data-aos="fade-up">
+                    <img src="Images/dmg.png" alt="DMG">
+                </div>
+                <div class="client-card" data-aos="fade-up">
+                    <img src="Images/ieml.jpg" alt="IEML">
+                </div>
+                <div class="client-card" data-aos="fade-up">
+                    <img src="Images/pda.jpg" alt="PDA">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact" style="background-color: whitesmoke;">
+        <br>
+        <h2 class="section-title" data-aos="fade-up">CONTACT US</h2>
+        <div class="contact-container">
+            <div class="contact-info" data-aos="fade-up">
+                <h3>Get in Touch</h3>
+                <p>📍 New Delhi 110001, India</p>
+                <p>📞 +91 123 123 9878</p>
+                <p>📧 <a href="mailto:info@exhibitionsolutions.in"
+                        style="text-decoration: none; color: black;">info@exhibitionsolutions.in</a></p>
+                        <div class="col-lg-6 ">
+                            <iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=Exhibition solutions pvt ltd&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" frameborder="0" style="width: 100%; height: 250px; border-radius: 5px; box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);" allowfullscreen></iframe> 
+                            </div>
+            </div>
+            <!-- I have used Formspree ID to use contact us form you can use your own -->
+            <form class="contact-form" action="https://formspree.io/f/jjgfgdf" method="POST" data-aos="fade-up">
+                <input type="text" name="name" placeholder="Your Name" class="form-input" required>
+                <input type="email" name="email" placeholder="Your Email" class="form-input" required>
+                <textarea rows="4" name="message" placeholder="Your Message" class="form-input" required></textarea>
+                <button type="submit" class="cta-button">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Our Stats Section -->
+    <section id="stats" class="stats">
+        <div class="stat-item">
+            <div class="stat-icon">
+                <i class="fas fa-smile"></i> <!-- Happy Clients Icon -->
+            </div>
+            <div class="stat-number" data-target="230">0</div>
+            <div class="stat-label">Happy Clients</div>
+        </div>
+
+        <div class="stat-item">
+            <div class="stat-icon">
+                <i class="fas fa-project-diagram"></i> <!-- Projects Icon -->
+            </div>
+            <div class="stat-number" data-target="520">0</div>
+            <div class="stat-label">Projects</div>
+        </div>
+
+        <div class="stat-item">
+            <div class="stat-icon">
+                <i class="fas fa-headset"></i> <!-- Hours of Support Icon -->
+            </div>
+            <div class="stat-number" data-target="1500">0</div>
+            <div class="stat-label">Hours of Support</div>
+        </div>
+
+        <div class="stat-item">
+            <div class="stat-icon">
+                <i class="fas fa-users"></i> <!-- Hard Workers Icon -->
+            </div>
+            <div class="stat-number" data-target="15">0</div>
+            <div class="stat-label">Team Members</div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3><i>Exhibition Solutions</i></h3>
+                <i>"Transforming Events with Innovation, Technology, and Seamless Execution"</i>
+                
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#clients">Clients</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Policies</h3>
+                <ul class="footer-links">
+                    <li><a href="privacy.html" target="_blank">Privacy Policy</a></li>
+                    <li><a href="refund.html" target="_blank">Refund & Cancellation Policy</a></li>
+                    <li><a href="T&C.html" target="_blank">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Social Links</h3>
+                <ul class="footer-links">
+                    <li><a href="https://www.linkedin.com/company/Exhibition-Solutions/posts/?feedView=all" target="_blank"> <img
+                                src="Images/linkedinicon.png" style="width: 24px; height: 24px;"> LinkedIn </a></li>
+                    <li><a href="https://www.facebook.com/people/Exhibition-Solutions/" target="_blank">
+                            <img src="Images/facebookicon.png" style="width: 24px; height: 24px;"> Facebook </a></li>
+                    <li><a href="https://www.instagram.com/Exhibition-Solutions" target="_blank">
+                            <img src="Images/instaicon.jpg" style="width: 24px; height: 24px;"> Instagram </a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Copyright line -->
+        <div class="footer-copyright">
+            <p style="text-align: center;">&copy; <span id="current-year"></span> Exhibition Solutions. All Rights
+                Reserved.</p>
+        </div>
+    </footer>
+
+
+    <!-- JavaScript to dynamically set the current year -->
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+    <script>
+        // Function to animate the number count
+        const counters = document.querySelectorAll('.stat-number');
+        const speed = 100; // Duration of counting in milliseconds
+
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            let count = 0;
+
+            const updateCounter = () => {
+                const increment = target / speed; // increment step
+                count += increment;
+                if (count >= target) {
+                    counter.textContent = target + "+"; // make sure it ends at the target value
+                } else {
+                    counter.textContent = Math.ceil(count);
+                    requestAnimationFrame(updateCounter);
+                }
+            };
+
+            updateCounter(); // start the animation
+        });
+    </script>
+    <script>
+        // Add this JavaScript for hamburger menu functionality
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.navbar')) {
+                navLinks.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+
+</html>
